@@ -355,6 +355,8 @@ namespace BookStoreScreen
         {
             //Search flag
             bool isSearch = false;
+            // setting event of btnSearch
+            btnSearch.Click -= new EventHandler(btnSearch_Click);
 
             //Init control
             InitControl(String.Empty);
@@ -365,6 +367,8 @@ namespace BookStoreScreen
             {
                 MessageBox.Show("Load Data Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            // setting event of btnSearch
+            btnSearch.Click += new EventHandler(btnSearch_Click);
         }
 
         /// <summary>
@@ -372,7 +376,7 @@ namespace BookStoreScreen
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Author_FormClosed(object sender, FormClosedEventArgs e)
+        private void Book_FormClosed(object sender, FormClosedEventArgs e)
         {
             mParentForm.Show();
         }
@@ -640,6 +644,9 @@ namespace BookStoreScreen
             //Search flag
             bool isSearch = false;
 
+            // setting event of btnSearch
+            btnSearch.Click -= new EventHandler(btnSearch_Click);
+
             //Init control
             InitControl(String.Empty);
 
@@ -649,6 +656,9 @@ namespace BookStoreScreen
             {
                 MessageBox.Show("Load Data Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            // setting event of btnSearch
+            btnSearch.Click += new EventHandler(btnSearch_Click);
         }
 
         /// <summary>
@@ -675,7 +685,6 @@ namespace BookStoreScreen
             }
         }
 
-        #endregion
 
         /// <summary>
         /// Event Click On button Search 
@@ -699,7 +708,7 @@ namespace BookStoreScreen
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Load Data Error "+ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);             
+                MessageBox.Show("Load Data Error " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -735,5 +744,8 @@ namespace BookStoreScreen
         {
             btnSearch.PerformClick();
         }
+
+        #endregion
+
     }
 }
