@@ -16,15 +16,14 @@ namespace BookStoreScreen
 {
     public partial class Author : MasterForm
     {
-        #region Declace variable
+        #region Variable definition
 
         IAuthorBusiness mAuthorBusiness { get; set; }
         private Form mParentForm = null;
         private string mAction = String.Empty;
-
+        private int mRowSelectedIndex = 0;
         #endregion
-
-        #region Methods
+        #region Constructor
         public Author(Form parentForm)
             : base("Author")
         {
@@ -32,6 +31,15 @@ namespace BookStoreScreen
             this.mParentForm = parentForm;
             this.mAuthorBusiness = new AuthorBusiness();
         }
+
+        public Author()
+        {
+            InitializeComponent();
+        }
+        #endregion
+
+        #region Methods
+
 
         /// <summary>
         /// Set status of control
@@ -61,6 +69,8 @@ namespace BookStoreScreen
                     this.btnCreateAuthor.Enabled = false;
                     this.btnSave.Enabled = true;
                     this.btnClear.Enabled = true;
+                    this.AcceptButton = btnSave;
+                    this.btnSave.Focus();
                     this.mAction = Constants.ACTION_CREATE;
                     break;
                 case Constants.ACTION_UPDATE:
@@ -78,6 +88,8 @@ namespace BookStoreScreen
                     this.btnDeleteAuthor.Enabled = false;
                     this.btnSave.Enabled = true;
                     this.btnClear.Enabled = true;
+                     this.AcceptButton = btnSave;
+                    this.btnSave.Focus();
                     this.mAction = Constants.ACTION_UPDATE;
                     break;
                 case Constants.ACTION_DELETE:
@@ -95,7 +107,8 @@ namespace BookStoreScreen
                     this.btnCreateAuthor.Enabled = true;
                     this.btnSave.Enabled = false;
                     this.btnClear.Enabled = false;
-
+                     this.AcceptButton = btnReload;
+                    this.btnReload.Focus();
                     if (Program.UserViewModel.Role.Equals(Constants.ROLE_ADMIN) && lvAuthor.Items.Count > 0)
                     {
                         this.btnDeleteAuthor.Enabled = true;
@@ -122,6 +135,7 @@ namespace BookStoreScreen
                     this.btnUpdateAuthor.Enabled = false;
                     this.btnClear.Enabled = false;
                     this.btnSave.Enabled = false;
+                    this.btnCreateAuthor.Focus();
 
                     if (Program.UserViewModel.Role.Equals(Constants.ROLE_ADMIN) && lvAuthor.Items.Count > 0)
                     {
@@ -166,7 +180,7 @@ namespace BookStoreScreen
                         lvItem.SubItems.Add(lstAuthorViewModel[i].Cover);
                         lvAuthor.Items.Add(lvItem);
                     }
-                    this.SetSelectedItem(0);
+                    this.SetSelectedItem(this.mRowSelectedIndex);
                 }
 
                 result = true;
@@ -270,6 +284,7 @@ namespace BookStoreScreen
 
                 this.ptbAvatar.ImageLocation = paths + author.Cover;
             }
+            mRowSelectedIndex = e.ItemIndex;
 
         }
 

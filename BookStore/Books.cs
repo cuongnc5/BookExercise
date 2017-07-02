@@ -15,8 +15,7 @@ namespace BookStoreScreen
 {
     public partial class Books : MasterForm
     {
-        #region Declace variable
-        //Declace variable
+        #region Variable definition        
         IAuthorBusiness mAuthorBusiness { get; set; }
         IBookBusiness mBookBusiness { get; set; }
         ICategoryBusiness mCategoryBusiness { get; set; }
@@ -26,11 +25,11 @@ namespace BookStoreScreen
 
         string mAction { get; set; }
         private Form mParentForm = null;
+        private int mRowSelectedIndex = 0;
         #endregion
 
-        #region Methods
-
-        //Contructor
+        #region Constructor
+        
         public Books()
             : base("Books")
         {
@@ -38,8 +37,11 @@ namespace BookStoreScreen
             this.mAuthorBusiness = new AuthorBusiness();
             this.mBookBusiness = new BookBusiness();
             this.mCategoryBusiness = new CategoryBusiness();
-
         }
+                
+        #endregion
+
+        #region Methods
 
         /// <summary>
         /// Set status of control
@@ -81,6 +83,8 @@ namespace BookStoreScreen
                     this.btnDelete.Enabled = false;
                     this.btnSave.Enabled = true;
                     this.btnClear.Enabled = true;
+                    this.btnSave.Focus();
+                    this.AcceptButton = btnSave;
                     this.mAction = Constants.ACTION_CREATE;
                     break;
                 case Constants.ACTION_UPDATE:
@@ -103,6 +107,8 @@ namespace BookStoreScreen
                     this.btnDelete.Enabled = false;
                     this.btnSave.Enabled = true;
                     this.btnClear.Enabled = true;
+                    this.AcceptButton = btnSave;
+                    this.btnSave.Focus();
                     this.mAction = Constants.ACTION_UPDATE;
                     break;
                 case Constants.ACTION_DELETE:
@@ -124,8 +130,9 @@ namespace BookStoreScreen
                     this.btnCreate.Enabled = true;
                     this.btnSave.Enabled = false;
                     this.btnClear.Enabled = false;
+                    this.AcceptButton = btnReload;
                     // Only Admin can delete 
-                    if (Program.UserViewModel.Role.Equals(Constants.ROLE_ADMIN) && lvDisplay.Items.Count > 0)
+                    if (Program.UserViewModel.Role.Equals(Constants.ROLE_ADMIN) && lvListBook.Items.Count > 0)
                     {
                         this.btnDelete.Enabled = true;
                     }
@@ -160,8 +167,9 @@ namespace BookStoreScreen
                     this.btnUpdate.Enabled = false;
                     this.btnClear.Enabled = false;
                     this.btnSave.Enabled = false;
+                    this.btnCreate.Focus();
                     // Only Admin can delete 
-                    if (Program.UserViewModel.Role.Equals(Constants.ROLE_ADMIN) && lvDisplay.Items.Count > 0)
+                    if (Program.UserViewModel.Role.Equals(Constants.ROLE_ADMIN) && lvListBook.Items.Count > 0)
                     {
                         this.btnDelete.Enabled = true;
                     }
@@ -189,7 +197,7 @@ namespace BookStoreScreen
             try
             {
                 //Clear grid
-                lvDisplay.Items.Clear();
+                lvListBook.Items.Clear();
 
                 int categoryId = Convert.ToInt32(this.cmbCategorySearch.SelectedValue);
                 int authorId = Convert.ToInt32(this.cmbAuthorSearch.SelectedValue);
@@ -299,9 +307,9 @@ namespace BookStoreScreen
                         lvItem.SubItems.Add(lstBookViewModel[i].Publisher);
                         lvItem.SubItems.Add(lstBookViewModel[i].Year.ToString());
 
-                        lvDisplay.Items.Add(lvItem);
+                        lvListBook.Items.Add(lvItem);
                     }
-                    this.SetSelectedItem(0);
+                    this.SetSelectedItem(this.mRowSelectedIndex);
                 }
 
 
@@ -324,8 +332,8 @@ namespace BookStoreScreen
         /// <param name="index"></param>
         public void SetSelectedItem(int index)
         {
-            lvDisplay.Items[index].Selected = true;
-            lvDisplay.Items[index].Focused = true;
+            lvListBook.Items[index].Selected = true;
+            lvListBook.Items[index].Focused = true;
         }
 
         /// <summary>
@@ -395,7 +403,7 @@ namespace BookStoreScreen
         /// <param name="e"></param>
         private void Book_FormClosed(object sender, FormClosedEventArgs e)
         {
-            mParentForm.Show();
+            Application.Exit();
         }
 
         /// <summary>
@@ -407,8 +415,8 @@ namespace BookStoreScreen
         private void lvDisplay_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             BookViewModel book = GetBookFromListView(e.Item);
-            InitControl(Constants.ACTION_VIEW);
-
+            this.InitControl(Constants.ACTION_VIEW);
+            this.mRowSelectedIndex = e.ItemIndex;
             this.txtID.Text = book.Id.ToString();
             this.txtName.Text = book.Title;
             this.rtbDescription.Text = book.Description;

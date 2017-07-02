@@ -54,7 +54,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lvDisplay = new System.Windows.Forms.ListView();
+            this.lvListBook = new System.Windows.Forms.ListView();
             this.colNo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colBookId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colBookName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -128,7 +128,7 @@
             this.cmbYear.Location = new System.Drawing.Point(386, 19);
             this.cmbYear.Name = "cmbYear";
             this.cmbYear.Size = new System.Drawing.Size(92, 21);
-            this.cmbYear.TabIndex = 62;
+            this.cmbYear.TabIndex = 3;
             // 
             // label8
             // 
@@ -142,10 +142,10 @@
             // txtPublisher
             // 
             this.txtPublisher.Location = new System.Drawing.Point(548, 51);
-            this.txtPublisher.MaxLength = 100;
+            this.txtPublisher.MaxLength = 250;
             this.txtPublisher.Name = "txtPublisher";
             this.txtPublisher.Size = new System.Drawing.Size(401, 20);
-            this.txtPublisher.TabIndex = 60;
+            this.txtPublisher.TabIndex = 6;
             // 
             // lblPublisher
             // 
@@ -180,7 +180,7 @@
             this.cmbCategory.Location = new System.Drawing.Point(773, 18);
             this.cmbCategory.Name = "cmbCategory";
             this.cmbCategory.Size = new System.Drawing.Size(176, 21);
-            this.cmbCategory.TabIndex = 56;
+            this.cmbCategory.TabIndex = 5;
             // 
             // label1
             // 
@@ -197,7 +197,7 @@
             this.cmbAuthor.Location = new System.Drawing.Point(548, 19);
             this.cmbAuthor.Name = "cmbAuthor";
             this.cmbAuthor.Size = new System.Drawing.Size(164, 21);
-            this.cmbAuthor.TabIndex = 54;
+            this.cmbAuthor.TabIndex = 4;
             // 
             // btnCover
             // 
@@ -206,7 +206,7 @@
             this.btnCover.Margin = new System.Windows.Forms.Padding(4);
             this.btnCover.Name = "btnCover";
             this.btnCover.Size = new System.Drawing.Size(126, 30);
-            this.btnCover.TabIndex = 53;
+            this.btnCover.TabIndex = 8;
             this.btnCover.Text = "Change Cover";
             this.btnCover.UseVisualStyleBackColor = true;
             this.btnCover.Click += new System.EventHandler(this.btnChangeCover_Click);
@@ -227,7 +227,7 @@
             this.btnReload.Margin = new System.Windows.Forms.Padding(4);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(104, 36);
-            this.btnReload.TabIndex = 51;
+            this.btnReload.TabIndex = 14;
             this.btnReload.Text = "Reload";
             this.btnReload.UseVisualStyleBackColor = true;
             this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
@@ -240,7 +240,7 @@
             this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(104, 36);
-            this.btnClear.TabIndex = 50;
+            this.btnClear.TabIndex = 13;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -253,7 +253,7 @@
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(104, 36);
-            this.btnSave.TabIndex = 49;
+            this.btnSave.TabIndex = 12;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -265,7 +265,7 @@
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(104, 36);
-            this.btnDelete.TabIndex = 47;
+            this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -277,7 +277,7 @@
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(104, 36);
-            this.btnUpdate.TabIndex = 48;
+            this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -289,7 +289,7 @@
             this.btnCreate.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(104, 36);
-            this.btnCreate.TabIndex = 46;
+            this.btnCreate.TabIndex = 9;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
@@ -306,19 +306,19 @@
             // rtbDescription
             // 
             this.rtbDescription.Location = new System.Drawing.Point(204, 84);
-            this.rtbDescription.MaxLength = 255;
+            this.rtbDescription.MaxLength = 500;
             this.rtbDescription.Name = "rtbDescription";
             this.rtbDescription.Size = new System.Drawing.Size(745, 47);
-            this.rtbDescription.TabIndex = 44;
+            this.rtbDescription.TabIndex = 7;
             this.rtbDescription.Text = "";
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(205, 51);
-            this.txtName.MaxLength = 100;
+            this.txtName.MaxLength = 250;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(273, 20);
-            this.txtName.TabIndex = 43;
+            this.txtName.TabIndex = 2;
             // 
             // txtID
             // 
@@ -326,7 +326,7 @@
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(132, 20);
-            this.txtID.TabIndex = 42;
+            this.txtID.TabIndex = 1;
             // 
             // label3
             // 
@@ -355,13 +355,13 @@
             this.label5.TabIndex = 39;
             this.label5.Text = "ID:";
             // 
-            // lvDisplay
+            // lvListBook
             // 
-            this.lvDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lvListBook.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvDisplay.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lvDisplay.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvListBook.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lvListBook.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colNo,
             this.colBookId,
             this.colBookName,
@@ -372,17 +372,17 @@
             this.colCategory,
             this.colPublisher,
             this.colYear});
-            this.lvDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvDisplay.FullRowSelect = true;
-            this.lvDisplay.GridLines = true;
-            this.lvDisplay.Location = new System.Drawing.Point(15, 254);
-            this.lvDisplay.Margin = new System.Windows.Forms.Padding(4);
-            this.lvDisplay.Name = "lvDisplay";
-            this.lvDisplay.Size = new System.Drawing.Size(958, 246);
-            this.lvDisplay.TabIndex = 40;
-            this.lvDisplay.UseCompatibleStateImageBehavior = false;
-            this.lvDisplay.View = System.Windows.Forms.View.Details;
-            this.lvDisplay.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvDisplay_ItemSelectionChanged);
+            this.lvListBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvListBook.FullRowSelect = true;
+            this.lvListBook.GridLines = true;
+            this.lvListBook.Location = new System.Drawing.Point(15, 254);
+            this.lvListBook.Margin = new System.Windows.Forms.Padding(4);
+            this.lvListBook.Name = "lvListBook";
+            this.lvListBook.Size = new System.Drawing.Size(958, 246);
+            this.lvListBook.TabIndex = 20;
+            this.lvListBook.UseCompatibleStateImageBehavior = false;
+            this.lvListBook.View = System.Windows.Forms.View.Details;
+            this.lvListBook.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvDisplay_ItemSelectionChanged);
             // 
             // colNo
             // 
@@ -403,7 +403,6 @@
             // colBookDesscription
             // 
             this.colBookDesscription.Text = "Description";
-            this.colBookDesscription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colBookDesscription.Width = 292;
             // 
             // colCeateDate
@@ -443,7 +442,7 @@
             this.txtSearchName.MaxLength = 100;
             this.txtSearchName.Name = "txtSearchName";
             this.txtSearchName.Size = new System.Drawing.Size(150, 20);
-            this.txtSearchName.TabIndex = 45;
+            this.txtSearchName.TabIndex = 15;
             // 
             // label6
             // 
@@ -461,7 +460,7 @@
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(103, 26);
-            this.btnSearch.TabIndex = 52;
+            this.btnSearch.TabIndex = 19;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
@@ -481,7 +480,7 @@
             this.cmbAuthorSearch.Location = new System.Drawing.Point(269, 227);
             this.cmbAuthorSearch.Name = "cmbAuthorSearch";
             this.cmbAuthorSearch.Size = new System.Drawing.Size(168, 21);
-            this.cmbAuthorSearch.TabIndex = 58;
+            this.cmbAuthorSearch.TabIndex = 16;
             // 
             // cmbCategorySearch
             // 
@@ -489,7 +488,7 @@
             this.cmbCategorySearch.Location = new System.Drawing.Point(519, 226);
             this.cmbCategorySearch.Name = "cmbCategorySearch";
             this.cmbCategorySearch.Size = new System.Drawing.Size(153, 21);
-            this.cmbCategorySearch.TabIndex = 58;
+            this.cmbCategorySearch.TabIndex = 17;
             // 
             // label9
             // 
@@ -506,7 +505,7 @@
             this.cmbYearSearch.Location = new System.Drawing.Point(727, 226);
             this.cmbYearSearch.Name = "cmbYearSearch";
             this.cmbYearSearch.Size = new System.Drawing.Size(95, 21);
-            this.cmbYearSearch.TabIndex = 58;
+            this.cmbYearSearch.TabIndex = 18;
             // 
             // label10
             // 
@@ -529,6 +528,7 @@
             // 
             // Books
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 511);
@@ -542,12 +542,12 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearchName);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.lvDisplay);
+            this.Controls.Add(this.lvListBook);
             this.Controls.Add(this.groupBox1);
             this.Name = "Books";
             this.Load += new System.EventHandler(this.Book_Load);
             this.Controls.SetChildIndex(this.groupBox1, 0);
-            this.Controls.SetChildIndex(this.lvDisplay, 0);
+            this.Controls.SetChildIndex(this.lvListBook, 0);
             this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.txtSearchName, 0);
             this.Controls.SetChildIndex(this.btnSearch, 0);
@@ -588,7 +588,7 @@
         private System.Windows.Forms.ComboBox cmbAuthor;
         private System.Windows.Forms.Button btnCover;
         private System.Windows.Forms.PictureBox ptbCover;
-        private System.Windows.Forms.ListView lvDisplay;
+        private System.Windows.Forms.ListView lvListBook;
         private System.Windows.Forms.ColumnHeader colNo;
         private System.Windows.Forms.ColumnHeader colBookId;
         private System.Windows.Forms.ColumnHeader colBookName;

@@ -83,7 +83,7 @@
             this.lvDisplay.Margin = new System.Windows.Forms.Padding(4);
             this.lvDisplay.Name = "lvDisplay";
             this.lvDisplay.Size = new System.Drawing.Size(958, 279);
-            this.lvDisplay.TabIndex = 37;
+            this.lvDisplay.TabIndex = 10;
             this.lvDisplay.UseCompatibleStateImageBehavior = false;
             this.lvDisplay.View = System.Windows.Forms.View.Details;
             this.lvDisplay.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvAuthor_ItemSelectionChanged);
@@ -106,7 +106,6 @@
             // colAuthorDesscription
             // 
             this.colAuthorDesscription.Text = "Description";
-            this.colAuthorDesscription.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.colAuthorDesscription.Width = 363;
             // 
             // colCreateDate
@@ -149,7 +148,7 @@
             this.btnReload.Margin = new System.Windows.Forms.Padding(4);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(104, 36);
-            this.btnReload.TabIndex = 51;
+            this.btnReload.TabIndex = 9;
             this.btnReload.Text = "Reload";
             this.btnReload.UseVisualStyleBackColor = true;
             this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
@@ -162,7 +161,7 @@
             this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(104, 36);
-            this.btnClear.TabIndex = 50;
+            this.btnClear.TabIndex = 8;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -175,7 +174,7 @@
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(104, 36);
-            this.btnSave.TabIndex = 49;
+            this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -187,7 +186,7 @@
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(104, 36);
-            this.btnDelete.TabIndex = 47;
+            this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -199,7 +198,7 @@
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(104, 36);
-            this.btnUpdate.TabIndex = 48;
+            this.btnUpdate.TabIndex = 5;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -211,7 +210,7 @@
             this.btnCreate.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(104, 36);
-            this.btnCreate.TabIndex = 46;
+            this.btnCreate.TabIndex = 4;
             this.btnCreate.Text = "Create";
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
@@ -231,7 +230,7 @@
             this.rtbDescription.MaxLength = 255;
             this.rtbDescription.Name = "rtbDescription";
             this.rtbDescription.Size = new System.Drawing.Size(878, 47);
-            this.rtbDescription.TabIndex = 44;
+            this.rtbDescription.TabIndex = 3;
             this.rtbDescription.Text = "";
             // 
             // txtName
@@ -240,7 +239,7 @@
             this.txtName.MaxLength = 100;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(273, 20);
-            this.txtName.TabIndex = 43;
+            this.txtName.TabIndex = 2;
             // 
             // txtID
             // 
@@ -248,7 +247,7 @@
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(121, 20);
-            this.txtID.TabIndex = 42;
+            this.txtID.TabIndex = 1;
             // 
             // label3
             // 
@@ -279,6 +278,7 @@
             // 
             // Category
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 511);
@@ -286,6 +286,7 @@
             this.Controls.Add(this.lvDisplay);
             this.Controls.Add(this.label4);
             this.Name = "Category";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Category_FormClosed);
             this.Load += new System.EventHandler(this.Category_Load);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.lvDisplay, 0);

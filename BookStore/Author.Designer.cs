@@ -77,7 +77,7 @@
             this.lvAuthor.Margin = new System.Windows.Forms.Padding(4);
             this.lvAuthor.Name = "lvAuthor";
             this.lvAuthor.Size = new System.Drawing.Size(958, 275);
-            this.lvAuthor.TabIndex = 8;
+            this.lvAuthor.TabIndex = 11;
             this.lvAuthor.UseCompatibleStateImageBehavior = false;
             this.lvAuthor.View = System.Windows.Forms.View.Details;
             this.lvAuthor.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvAuthor_ItemSelectionChanged);
@@ -147,7 +147,7 @@
             this.btnReload.Margin = new System.Windows.Forms.Padding(4);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(104, 36);
-            this.btnReload.TabIndex = 51;
+            this.btnReload.TabIndex = 10;
             this.btnReload.Text = "Reload";
             this.btnReload.UseVisualStyleBackColor = true;
             this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
@@ -160,7 +160,7 @@
             this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(104, 36);
-            this.btnClear.TabIndex = 50;
+            this.btnClear.TabIndex = 9;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -173,7 +173,7 @@
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(104, 36);
-            this.btnSave.TabIndex = 49;
+            this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -185,7 +185,7 @@
             this.btnDeleteAuthor.Margin = new System.Windows.Forms.Padding(4);
             this.btnDeleteAuthor.Name = "btnDeleteAuthor";
             this.btnDeleteAuthor.Size = new System.Drawing.Size(104, 36);
-            this.btnDeleteAuthor.TabIndex = 47;
+            this.btnDeleteAuthor.TabIndex = 7;
             this.btnDeleteAuthor.Text = "Delete";
             this.btnDeleteAuthor.UseVisualStyleBackColor = true;
             this.btnDeleteAuthor.Click += new System.EventHandler(this.btnDelete_Click);
@@ -197,7 +197,7 @@
             this.btnUpdateAuthor.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdateAuthor.Name = "btnUpdateAuthor";
             this.btnUpdateAuthor.Size = new System.Drawing.Size(104, 36);
-            this.btnUpdateAuthor.TabIndex = 48;
+            this.btnUpdateAuthor.TabIndex = 6;
             this.btnUpdateAuthor.Text = "Update";
             this.btnUpdateAuthor.UseVisualStyleBackColor = true;
             this.btnUpdateAuthor.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -209,7 +209,7 @@
             this.btnCreateAuthor.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateAuthor.Name = "btnCreateAuthor";
             this.btnCreateAuthor.Size = new System.Drawing.Size(104, 36);
-            this.btnCreateAuthor.TabIndex = 46;
+            this.btnCreateAuthor.TabIndex = 5;
             this.btnCreateAuthor.Text = "Create";
             this.btnCreateAuthor.UseVisualStyleBackColor = true;
             this.btnCreateAuthor.Click += new System.EventHandler(this.btnCreate_Click);
@@ -229,7 +229,7 @@
             this.rtbDescription.MaxLength = 255;
             this.rtbDescription.Name = "rtbDescription";
             this.rtbDescription.Size = new System.Drawing.Size(752, 56);
-            this.rtbDescription.TabIndex = 44;
+            this.rtbDescription.TabIndex = 3;
             this.rtbDescription.Text = "";
             // 
             // txtAuthorName
@@ -238,7 +238,7 @@
             this.txtAuthorName.MaxLength = 100;
             this.txtAuthorName.Name = "txtAuthorName";
             this.txtAuthorName.Size = new System.Drawing.Size(216, 20);
-            this.txtAuthorName.TabIndex = 43;
+            this.txtAuthorName.TabIndex = 2;
             // 
             // txtAuthorID
             // 
@@ -246,7 +246,7 @@
             this.txtAuthorID.Name = "txtAuthorID";
             this.txtAuthorID.ReadOnly = true;
             this.txtAuthorID.Size = new System.Drawing.Size(121, 20);
-            this.txtAuthorID.TabIndex = 42;
+            this.txtAuthorID.TabIndex = 1;
             // 
             // lblOldAvatarUrl
             // 
@@ -292,7 +292,7 @@
             this.btnAuthoAvatar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAuthoAvatar.Name = "btnAuthoAvatar";
             this.btnAuthoAvatar.Size = new System.Drawing.Size(126, 30);
-            this.btnAuthoAvatar.TabIndex = 34;
+            this.btnAuthoAvatar.TabIndex = 4;
             this.btnAuthoAvatar.Text = "Change Avatar";
             this.btnAuthoAvatar.UseVisualStyleBackColor = true;
             this.btnAuthoAvatar.Click += new System.EventHandler(this.btnChangeCover_Click);
@@ -318,6 +318,7 @@
             // 
             // Author
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 511);

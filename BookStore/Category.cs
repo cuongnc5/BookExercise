@@ -14,13 +14,14 @@ namespace BookStoreScreen
 {
     public partial class Category : MasterForm
     {
-        #region Variable definition        
+        #region Variable definition
         private string mAction = String.Empty;
         private Form mParentForm = null;
         private CategoryBusiness mCategoryBusiness;
+        private int mRowSelectedIndex = 0;
         #endregion
 
-        #region Methods
+        #region Constructor
         public Category(Form parentForm)
             : base("Category")
         {
@@ -29,19 +30,14 @@ namespace BookStoreScreen
             mParentForm = parentForm;
         }
 
-        private void Category_Load(object sender, EventArgs e)
+        public Category()
         {
-            //Init control
-            InitControl(String.Empty);
+            InitializeComponent();
 
-            //Load data
-            bool loadData = InitData();
-            if (!loadData)
-            {
-                MessageBox.Show("Load Data Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
+        #endregion
 
+        #region Methods
         /// <summary>
         /// Set status of control
         /// </summary>
@@ -54,7 +50,7 @@ namespace BookStoreScreen
                     this.txtID.ReadOnly = true;
                     this.txtName.ReadOnly = false;
                     this.rtbDescription.Enabled = false;
-                    
+
                     this.txtID.Enabled = false;
                     this.txtName.Enabled = true;
                     this.rtbDescription.Enabled = true;
@@ -67,13 +63,15 @@ namespace BookStoreScreen
                     this.btnCreate.Enabled = false;
                     this.btnSave.Enabled = true;
                     this.btnClear.Enabled = true;
+                    this.AcceptButton = btnSave;
+                    this.btnSave.Focus();
                     this.mAction = Constants.ACTION_CREATE;
                     break;
                 case Constants.ACTION_UPDATE:
-                  this.txtID.ReadOnly = true;
+                    this.txtID.ReadOnly = true;
                     this.txtName.ReadOnly = false;
                     this.rtbDescription.Enabled = false;
-                    
+
                     this.txtID.Enabled = false;
                     this.txtName.Enabled = true;
                     this.rtbDescription.Enabled = true;
@@ -82,27 +80,16 @@ namespace BookStoreScreen
                     this.btnCreate.Enabled = false;
                     this.btnSave.Enabled = true;
                     this.btnClear.Enabled = true;
+                     this.AcceptButton = btnSave;
+                    this.btnSave.Focus();
                     this.mAction = Constants.ACTION_UPDATE;
                     break;
-                case Constants.ACTION_DELETE:
-                   this.txtID.ReadOnly = true;
-                   this.txtName.ReadOnly = true;
-                   this.rtbDescription.Enabled = true;
-                    
-                    this.txtID.Enabled = false;
-                    this.txtName.Enabled = false;
-                    this.rtbDescription.Enabled = false;
-
-                    this.btnUpdate.Enabled = false;
-                    this.btnCreate.Enabled = false;
-                    this.btnSave.Enabled = false;
-                    this.btnClear.Enabled = false;
-                    break;
+                case Constants.ACTION_DELETE:                   
                 case Constants.ACTION_VIEW:
                     this.txtID.ReadOnly = true;
                     this.txtName.ReadOnly = true;
                     this.rtbDescription.Enabled = true;
-                    
+
                     this.txtID.Enabled = false;
                     this.txtName.Enabled = false;
                     this.rtbDescription.Enabled = false;
@@ -111,19 +98,24 @@ namespace BookStoreScreen
                     this.btnCreate.Enabled = true;
                     this.btnSave.Enabled = false;
                     this.btnClear.Enabled = false;
+                    this.AcceptButton = btnReload;
+                    this.btnReload.Focus();
+                    this.mAction = Constants.ACTION_DELETE;
                     break;
                 default:
                     this.txtID.ReadOnly = true;
                     this.txtName.ReadOnly = true;
                     this.rtbDescription.Enabled = true;
-                    
+
                     this.txtID.Enabled = false;
                     this.txtName.Enabled = false;
                     this.rtbDescription.Enabled = false;
 
                     this.btnCreate.Enabled = true;
                     this.btnUpdate.Enabled = false;
-                    this.btnClear.Enabled = this.btnSave.Enabled = false;
+                    this.btnClear.Enabled = false;
+                    this.btnSave.Enabled = false;
+                    this.btnCreate.Focus();
                     break;
             }
 
@@ -164,7 +156,7 @@ namespace BookStoreScreen
                         lvItem.SubItems.Add(lstAuthorViewModel[i].CreateTime.ToString(Constants.DATE_FORMAT_1));
                         lvDisplay.Items.Add(lvItem);
                     }
-                    this.SetSelectedItem(0);
+                    this.SetSelectedItem(this.mRowSelectedIndex);
                 }
 
                 result = true;
@@ -208,12 +200,26 @@ namespace BookStoreScreen
         #endregion
 
         #region Events
+
+        private void Category_Load(object sender, EventArgs e)
+        {
+            //Init control
+            InitControl(String.Empty);
+
+            //Load data
+            bool loadData = InitData();
+            if (!loadData)
+            {
+                MessageBox.Show("Load Data Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         /// <summary>
         /// Handle process  Close_Form: Close this form and display parent form.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ListAuthor_FormClosed(object sender, FormClosedEventArgs e)
+        private void Category_FormClosed(object sender, FormClosedEventArgs e)
         {
             mParentForm.Show();
         }
@@ -227,11 +233,12 @@ namespace BookStoreScreen
         private void lvAuthor_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             this.InitControl(Constants.ACTION_VIEW);
-            CategoryViewModel category = GetAuthorFromListView(e.Item);            
+            CategoryViewModel category = GetAuthorFromListView(e.Item);
             this.txtID.Text = category.Id.ToString();
             this.txtName.Text = category.Title;
             this.rtbDescription.Text = category.Description;
             this.lblCreateTime.Text = category.CreateTime.ToString();
+            this.mRowSelectedIndex = e.ItemIndex;
 
         }
 
@@ -244,7 +251,7 @@ namespace BookStoreScreen
         {
             InitControl(Constants.ACTION_CREATE);
             this.txtID.Text = (mCategoryBusiness.GetMaxId() + 1).ToString();
-            
+
         }
 
         /// <summary>
@@ -381,7 +388,7 @@ namespace BookStoreScreen
             this.txtID.Text = string.Empty;
             this.txtName.Text = string.Empty;
             this.rtbDescription.Text = string.Empty;
-         
+
         }
 
         /// <summary>
@@ -414,5 +421,7 @@ namespace BookStoreScreen
         }
 
         #endregion
+
+
     }
 }
