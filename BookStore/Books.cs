@@ -83,7 +83,7 @@ namespace BookStoreScreen
                     this.btnDelete.Enabled = false;
                     this.btnSave.Enabled = true;
                     this.btnClear.Enabled = true;
-                    this.btnSave.Focus();
+                    this.txtName.Focus();
                     this.AcceptButton = btnSave;
                     this.mAction = Constants.ACTION_CREATE;
                     break;
@@ -108,7 +108,7 @@ namespace BookStoreScreen
                     this.btnSave.Enabled = true;
                     this.btnClear.Enabled = true;
                     this.AcceptButton = btnSave;
-                    this.btnSave.Focus();
+                    this.txtName.Focus();
                     this.mAction = Constants.ACTION_UPDATE;
                     break;
                 case Constants.ACTION_DELETE:
@@ -199,10 +199,12 @@ namespace BookStoreScreen
                 //Clear grid
                 lvListBook.Items.Clear();
 
+                // get keyword of search function
                 int categoryId = Convert.ToInt32(this.cmbCategorySearch.SelectedValue);
                 int authorId = Convert.ToInt32(this.cmbAuthorSearch.SelectedValue);
                 int year = Convert.ToInt32(this.cmbYearSearch.SelectedItem);
                 string searchKey = this.txtSearchName.Text;
+
                 if (!isSearch)
                 {
                     lstBookViewModel = mBookBusiness.GetAll();
@@ -332,8 +334,10 @@ namespace BookStoreScreen
         /// <param name="index"></param>
         public void SetSelectedItem(int index)
         {
-            lvListBook.Items[index].Selected = true;
             lvListBook.Items[index].Focused = true;
+            lvListBook.EnsureVisible(index);
+            lvListBook.Items[index].Selected = true;
+            
         }
 
         /// <summary>
@@ -603,6 +607,9 @@ namespace BookStoreScreen
                         result = mBookBusiness.Create(bookViewModel);
                         if (result)
                         {
+                            //Set focus to last row insert of listview
+                            mRowSelectedIndex = 0;
+                           
                             MessageBox.Show("Create book successfuly", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
@@ -620,6 +627,7 @@ namespace BookStoreScreen
                             result = mBookBusiness.Edit(bookViewModel);
                             if (result)
                             {
+                                
                                 MessageBox.Show("Update book successfuly", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
@@ -637,7 +645,7 @@ namespace BookStoreScreen
                         if (result)
                         {
                             MessageBox.Show("Delete book successfuly", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            btnReload.PerformClick();
+                            
                         }
                         else
                         {

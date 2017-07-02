@@ -49,7 +49,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\AuthorBusiness\AuthorBusiness.cs" />
-    <Compile Include="Business\AuthorBusiness\AuthorMapping.cs" />
     <Compile Include="Business\AuthorBusiness\AuthorViewModel.cs" />
     <Compile Include="Business\AuthorBusiness\IAuthorBusiness.cs" />
     <Compile Include="Business\BookBusiness\BookBusiness.cs" />

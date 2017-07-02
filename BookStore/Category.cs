@@ -64,7 +64,7 @@ namespace BookStoreScreen
                     this.btnSave.Enabled = true;
                     this.btnClear.Enabled = true;
                     this.AcceptButton = btnSave;
-                    this.btnSave.Focus();
+                    this.txtName.Focus();
                     this.mAction = Constants.ACTION_CREATE;
                     break;
                 case Constants.ACTION_UPDATE:
@@ -81,7 +81,7 @@ namespace BookStoreScreen
                     this.btnSave.Enabled = true;
                     this.btnClear.Enabled = true;
                      this.AcceptButton = btnSave;
-                    this.btnSave.Focus();
+                     this.txtName.Focus();;
                     this.mAction = Constants.ACTION_UPDATE;
                     break;
                 case Constants.ACTION_DELETE:                   
@@ -295,7 +295,7 @@ namespace BookStoreScreen
                 // Check category id
                 if (!mAction.Equals(Constants.ACTION_DELETE) && !mAction.Equals(Constants.ACTION_VIEW))
                 {
-                    if (String.IsNullOrEmpty(this.txtName.Text.Trim()))
+                    if (String.IsNullOrEmpty(this.txtID.Text.Trim()))
                     {
                         MessageBox.Show("Category ID cannot Empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         this.txtID.Focus();
@@ -319,6 +319,21 @@ namespace BookStoreScreen
                 categoryViewModel.DelFlag = false;
                 switch (mAction)
                 {
+                    case Constants.ACTION_CREATE:
+                        categoryViewModel.CreateTime = DateTime.Now;
+                        categoryViewModel.LastUpdateTime = DateTime.Now;
+                        result = mCategoryBusiness.Create(categoryViewModel);
+                        if (result)
+                        {
+                            //Set focus to last row insert of listview         
+                            this.mRowSelectedIndex = 0;                           
+                            MessageBox.Show("Create category successfuly", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Create category error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        break;
                     case Constants.ACTION_UPDATE:
                         if (CheckIdExist(categoryViewModel.Id))
                         {
@@ -336,19 +351,7 @@ namespace BookStoreScreen
                             }
                         }
                         break;
-                    case Constants.ACTION_CREATE:
-                        categoryViewModel.CreateTime = DateTime.Now;
-                        categoryViewModel.LastUpdateTime = DateTime.Now;
-                        result = mCategoryBusiness.Create(categoryViewModel);
-                        if (result)
-                        {
-                            MessageBox.Show("Create category successfuly", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Create category error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        break;
+                  
                     case Constants.ACTION_DELETE:
                         //Update category
                         categoryViewModel.DelFlag = true;
@@ -357,6 +360,7 @@ namespace BookStoreScreen
                         result = mCategoryBusiness.Edit(categoryViewModel);
                         if (result)
                         {
+                            
                             MessageBox.Show("Delete category successfuly", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else

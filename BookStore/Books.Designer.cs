@@ -116,7 +116,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(354, 23);
+            this.label11.Location = new System.Drawing.Point(856, 22);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(29, 13);
             this.label11.TabIndex = 63;
@@ -125,15 +125,15 @@
             // cmbYear
             // 
             this.cmbYear.FormattingEnabled = true;
-            this.cmbYear.Location = new System.Drawing.Point(386, 19);
+            this.cmbYear.Location = new System.Drawing.Point(891, 19);
             this.cmbYear.Name = "cmbYear";
-            this.cmbYear.Size = new System.Drawing.Size(92, 21);
-            this.cmbYear.TabIndex = 3;
+            this.cmbYear.Size = new System.Drawing.Size(65, 21);
+            this.cmbYear.TabIndex = 4;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(492, 54);
+            this.label8.Location = new System.Drawing.Point(142, 50);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 13);
             this.label8.TabIndex = 61;
@@ -141,16 +141,16 @@
             // 
             // txtPublisher
             // 
-            this.txtPublisher.Location = new System.Drawing.Point(548, 51);
+            this.txtPublisher.Location = new System.Drawing.Point(198, 47);
             this.txtPublisher.MaxLength = 250;
             this.txtPublisher.Name = "txtPublisher";
-            this.txtPublisher.Size = new System.Drawing.Size(401, 20);
-            this.txtPublisher.TabIndex = 6;
+            this.txtPublisher.Size = new System.Drawing.Size(420, 20);
+            this.txtPublisher.TabIndex = 5;
             // 
             // lblPublisher
             // 
             this.lblPublisher.AutoSize = true;
-            this.lblPublisher.Location = new System.Drawing.Point(801, 27);
+            this.lblPublisher.Location = new System.Drawing.Point(476, 90);
             this.lblPublisher.Name = "lblPublisher";
             this.lblPublisher.Size = new System.Drawing.Size(0, 13);
             this.lblPublisher.TabIndex = 59;
@@ -159,7 +159,7 @@
             // lblOldCoverUrl
             // 
             this.lblOldCoverUrl.AutoSize = true;
-            this.lblOldCoverUrl.Location = new System.Drawing.Point(815, 22);
+            this.lblOldCoverUrl.Location = new System.Drawing.Point(490, 85);
             this.lblOldCoverUrl.Name = "lblOldCoverUrl";
             this.lblOldCoverUrl.Size = new System.Drawing.Size(0, 13);
             this.lblOldCoverUrl.TabIndex = 58;
@@ -168,7 +168,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(718, 22);
+            this.label4.Location = new System.Drawing.Point(628, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 57;
@@ -177,15 +177,15 @@
             // cmbCategory
             // 
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(773, 18);
+            this.cmbCategory.Location = new System.Drawing.Point(680, 47);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(176, 21);
-            this.cmbCategory.TabIndex = 5;
+            this.cmbCategory.Size = new System.Drawing.Size(164, 21);
+            this.cmbCategory.TabIndex = 6;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(504, 22);
+            this.label1.Location = new System.Drawing.Point(636, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 55;
@@ -194,10 +194,10 @@
             // cmbAuthor
             // 
             this.cmbAuthor.FormattingEnabled = true;
-            this.cmbAuthor.Location = new System.Drawing.Point(548, 19);
+            this.cmbAuthor.Location = new System.Drawing.Point(680, 19);
             this.cmbAuthor.Name = "cmbAuthor";
             this.cmbAuthor.Size = new System.Drawing.Size(164, 21);
-            this.cmbAuthor.TabIndex = 4;
+            this.cmbAuthor.TabIndex = 3;
             // 
             // btnCover
             // 
@@ -297,7 +297,7 @@
             // lblCreateTime
             // 
             this.lblCreateTime.AutoSize = true;
-            this.lblCreateTime.Location = new System.Drawing.Point(458, 26);
+            this.lblCreateTime.Location = new System.Drawing.Point(452, 26);
             this.lblCreateTime.Name = "lblCreateTime";
             this.lblCreateTime.Size = new System.Drawing.Size(0, 13);
             this.lblCreateTime.TabIndex = 45;
@@ -305,16 +305,16 @@
             // 
             // rtbDescription
             // 
-            this.rtbDescription.Location = new System.Drawing.Point(204, 84);
+            this.rtbDescription.Location = new System.Drawing.Point(198, 74);
             this.rtbDescription.MaxLength = 500;
             this.rtbDescription.Name = "rtbDescription";
-            this.rtbDescription.Size = new System.Drawing.Size(745, 47);
+            this.rtbDescription.Size = new System.Drawing.Size(745, 57);
             this.rtbDescription.TabIndex = 7;
             this.rtbDescription.Text = "";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(205, 51);
+            this.txtName.Location = new System.Drawing.Point(345, 19);
             this.txtName.MaxLength = 250;
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(273, 20);
@@ -322,16 +322,16 @@
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(205, 19);
+            this.txtID.Location = new System.Drawing.Point(199, 19);
             this.txtID.Name = "txtID";
             this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(132, 20);
+            this.txtID.Size = new System.Drawing.Size(80, 20);
             this.txtID.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(139, 109);
+            this.label3.Location = new System.Drawing.Point(133, 109);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(63, 13);
             this.label3.TabIndex = 41;
@@ -340,7 +340,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(161, 54);
+            this.label2.Location = new System.Drawing.Point(301, 22);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 40;
@@ -349,7 +349,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(178, 22);
+            this.label5.Location = new System.Drawing.Point(172, 22);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(21, 13);
             this.label5.TabIndex = 39;

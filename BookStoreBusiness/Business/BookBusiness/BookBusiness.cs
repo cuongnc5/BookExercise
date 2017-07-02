@@ -34,7 +34,7 @@ namespace BookStoreBusiness
                 LastUpdateTime = book.LastUpdateTime ?? DateTime.MinValue,
                 Category=book.Category,
                 DelFlag=book.DelFlag
-            }).Where(book=>book.DelFlag==false).ToList();
+            }).Where(book => book.DelFlag == false).OrderByDescending(x => x.CreateTime).ToList();
 
             return lstBookViewModel;
         }
@@ -157,7 +157,7 @@ namespace BookStoreBusiness
                 lstBookViewModel = lstBookViewModel.Where(x => x.Year == year);
             }
 
-            return lstBookViewModel.ToList();
+            return lstBookViewModel.OrderByDescending(x => x.CreateTime).ToList();
         }
 
         /// <summary>

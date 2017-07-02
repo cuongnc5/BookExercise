@@ -28,7 +28,7 @@ namespace BookStoreBusiness
                 CreateTime = author.CreateTime,
                 LastUpdateTime = author.LastUpdateTime,
                 DelFlag = author.DelFlag
-            }).Where(x=>x.DelFlag==false).ToList();
+            }).Where(x=>x.DelFlag==false).OrderByDescending(x=>x.CreateTime).ToList();
 
             return lstAuthorViewModel;
         }

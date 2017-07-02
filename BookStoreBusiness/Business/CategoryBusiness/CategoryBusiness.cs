@@ -29,7 +29,7 @@ namespace BookStoreBusiness
                 CreateTime = category.CreateTime??DateTime.MinValue,
                 LastUpdateTime = category.LastUpdateTime??DateTime.MinValue,
                 DelFlag = category.DelFlag
-            }).Where(x => x.DelFlag == false).ToList();
+            }).Where(x => x.DelFlag == false).OrderByDescending(x => x.CreateTime).ToList();
 
             return lstAuthorViewModel;
         }

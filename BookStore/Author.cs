@@ -70,7 +70,7 @@ namespace BookStoreScreen
                     this.btnSave.Enabled = true;
                     this.btnClear.Enabled = true;
                     this.AcceptButton = btnSave;
-                    this.btnSave.Focus();
+                    this.txtAuthorName.Focus();
                     this.mAction = Constants.ACTION_CREATE;
                     break;
                 case Constants.ACTION_UPDATE:
@@ -89,7 +89,7 @@ namespace BookStoreScreen
                     this.btnSave.Enabled = true;
                     this.btnClear.Enabled = true;
                      this.AcceptButton = btnSave;
-                    this.btnSave.Focus();
+                     this.txtAuthorName.Focus();
                     this.mAction = Constants.ACTION_UPDATE;
                     break;
                 case Constants.ACTION_DELETE:
@@ -347,7 +347,7 @@ namespace BookStoreScreen
                 // Check author id
                 if (!mAction.Equals(Constants.ACTION_DELETE) && !mAction.Equals(Constants.ACTION_VIEW))
                 {
-                    if (String.IsNullOrEmpty(this.txtAuthorName.Text.Trim()))
+                    if (String.IsNullOrEmpty(this.txtAuthorID.Text.Trim()))
                     {
                         MessageBox.Show("Author ID cannot Empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         this.txtAuthorID.Focus();
@@ -387,6 +387,25 @@ namespace BookStoreScreen
 
                 switch (mAction)
                 {
+                    case Constants.ACTION_CREATE:
+                        authorViewModel.CreateTime = DateTime.Now;
+                        authorViewModel.DelFlag = false;
+                        result = mAuthorBusiness.CreateAuthor(authorViewModel);
+                        if (result)
+                        {
+                            //Set focus to last row insert of listview
+                            mRowSelectedIndex = 0;                            
+                           
+                            //Show infor
+                            MessageBox.Show("Create author successfuly", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            
+                        }
+                        else
+                        {
+                            MessageBox.Show("Create author error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        break;
+
                     case Constants.ACTION_UPDATE:
                         if (CheckIdExist(authorViewModel.Id))
                         {
@@ -397,6 +416,8 @@ namespace BookStoreScreen
                             result = mAuthorBusiness.EditAuthor(authorViewModel);
                             if (result)
                             {
+                                
+                                //Show infor
                                 MessageBox.Show("Update author successfuly", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
@@ -405,19 +426,7 @@ namespace BookStoreScreen
                             }
                         }
                         break;
-                    case Constants.ACTION_CREATE:
-                        authorViewModel.CreateTime = DateTime.Now;
-                        authorViewModel.DelFlag = false;
-                        result = mAuthorBusiness.CreateAuthor(authorViewModel);
-                        if (result)
-                        {
-                            MessageBox.Show("Create author successfuly", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Create author error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        break;
+                   
                     case Constants.ACTION_DELETE:
                         //Update author
                         authorViewModel.DelFlag = true;
@@ -436,6 +445,7 @@ namespace BookStoreScreen
                     default:
                         break;
                 }
+                //Reload data
                 if (result)
                     btnReload.PerformClick();
             }
