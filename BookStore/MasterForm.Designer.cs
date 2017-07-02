@@ -66,42 +66,42 @@
             // managerUserToolStripMenuItem
             // 
             this.managerUserToolStripMenuItem.Name = "managerUserToolStripMenuItem";
-            this.managerUserToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.managerUserToolStripMenuItem.Text = "Manager User";
+            this.managerUserToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.managerUserToolStripMenuItem.Text = "User";
             this.managerUserToolStripMenuItem.Click += new System.EventHandler(this.managerUserToolStripMenuItem_Click);
             // 
             // managerRoleToolStripMenuItem
             // 
             this.managerRoleToolStripMenuItem.Name = "managerRoleToolStripMenuItem";
-            this.managerRoleToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.managerRoleToolStripMenuItem.Text = "Manager Role";
+            this.managerRoleToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.managerRoleToolStripMenuItem.Text = "Role";
             this.managerRoleToolStripMenuItem.Click += new System.EventHandler(this.managerRoleToolStripMenuItem_Click);
             // 
             // managerCategoryToolStripMenuItem
             // 
             this.managerCategoryToolStripMenuItem.Name = "managerCategoryToolStripMenuItem";
-            this.managerCategoryToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.managerCategoryToolStripMenuItem.Text = "Manager Category";
+            this.managerCategoryToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.managerCategoryToolStripMenuItem.Text = "Category";
             this.managerCategoryToolStripMenuItem.Click += new System.EventHandler(this.managerCategoryToolStripMenuItem_Click);
             // 
             // managerBookToolStripMenuItem
             // 
             this.managerBookToolStripMenuItem.Name = "managerBookToolStripMenuItem";
-            this.managerBookToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.managerBookToolStripMenuItem.Text = "Manager Book";
+            this.managerBookToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.managerBookToolStripMenuItem.Text = "Book";
             this.managerBookToolStripMenuItem.Click += new System.EventHandler(this.managerBookToolStripMenuItem_Click);
             // 
             // managerAuthorToolStripMenuItem
             // 
             this.managerAuthorToolStripMenuItem.Name = "managerAuthorToolStripMenuItem";
-            this.managerAuthorToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.managerAuthorToolStripMenuItem.Text = "Manager Author";
+            this.managerAuthorToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.managerAuthorToolStripMenuItem.Text = "Author";
             this.managerAuthorToolStripMenuItem.Click += new System.EventHandler(this.managerAuthorToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.logOutToolStripMenuItem.Text = "LogOut";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 

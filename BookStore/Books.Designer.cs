@@ -74,6 +74,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.cmbYearSearch = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCover)).BeginInit();
             this.SuspendLayout();
@@ -481,7 +482,6 @@
             this.cmbAuthorSearch.Name = "cmbAuthorSearch";
             this.cmbAuthorSearch.Size = new System.Drawing.Size(168, 21);
             this.cmbAuthorSearch.TabIndex = 58;
-            this.cmbAuthorSearch.SelectedIndexChanged += new System.EventHandler(this.cmbAuthorSearch_SelectedIndexChanged);
             // 
             // cmbCategorySearch
             // 
@@ -490,7 +490,6 @@
             this.cmbCategorySearch.Name = "cmbCategorySearch";
             this.cmbCategorySearch.Size = new System.Drawing.Size(153, 21);
             this.cmbCategorySearch.TabIndex = 58;
-            this.cmbCategorySearch.SelectedIndexChanged += new System.EventHandler(this.cmbCategorySearch_SelectedIndexChanged);
             // 
             // label9
             // 
@@ -508,7 +507,6 @@
             this.cmbYearSearch.Name = "cmbYearSearch";
             this.cmbYearSearch.Size = new System.Drawing.Size(95, 21);
             this.cmbYearSearch.TabIndex = 58;
-            this.cmbYearSearch.SelectedIndexChanged += new System.EventHandler(this.cmbYearSearch_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -519,11 +517,22 @@
             this.label10.TabIndex = 59;
             this.label10.Text = "Year";
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(364, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(244, 25);
+            this.label12.TabIndex = 60;
+            this.label12.Text = "BOOK MANAGEMENT";
+            // 
             // Books
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 511);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.cmbYearSearch);
@@ -536,7 +545,6 @@
             this.Controls.Add(this.lvDisplay);
             this.Controls.Add(this.groupBox1);
             this.Name = "Books";
-            this.Text = "Books";
             this.Load += new System.EventHandler(this.Book_Load);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.lvDisplay, 0);
@@ -549,6 +557,7 @@
             this.Controls.SetChildIndex(this.cmbYearSearch, 0);
             this.Controls.SetChildIndex(this.label9, 0);
             this.Controls.SetChildIndex(this.label10, 0);
+            this.Controls.SetChildIndex(this.label12, 0);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ptbCover)).EndInit();
@@ -605,5 +614,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox cmbYear;
         private System.Windows.Forms.ColumnHeader colYear;
+        private System.Windows.Forms.Label label12;
     }
 }

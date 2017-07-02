@@ -22,7 +22,7 @@ namespace BookStoreScreen
         ICategoryBusiness mCategoryBusiness { get; set; }
         List<CategoryViewModel> mListCategory = null;
         List<AuthorViewModel> mListAuthor = null;
-        List<int> mListYear = null;
+        List<string> mListYear = null;
 
         string mAction { get; set; }
         private Form mParentForm = null;
@@ -50,6 +50,18 @@ namespace BookStoreScreen
             switch (action)
             {
                 case Constants.ACTION_CREATE:
+
+                    this.txtID.Text = String.Empty;
+                    this.txtName.Text = String.Empty;
+                    this.rtbDescription.Text = String.Empty;
+                    this.lblOldCoverUrl.Text = string.Empty;
+                    this.ptbCover.Image = null;
+                    this.cmbAuthor.SelectedIndex = 0;
+                    this.cmbCategory.SelectedIndex = 0;
+                    this.cmbYear.SelectedItem = String.Empty;
+                    this.txtPublisher.Text = string.Empty;
+                    this.ptbCover.ImageLocation = string.Empty;
+
                     this.txtID.ReadOnly = true;
                     this.txtName.ReadOnly = false;
                     this.rtbDescription.Enabled = false;
@@ -62,12 +74,6 @@ namespace BookStoreScreen
                     this.cmbAuthor.Enabled = true;
                     this.cmbCategory.Enabled = true;
                     this.txtPublisher.Enabled = true;
-
-                    this.txtID.Text = String.Empty;
-                    this.txtName.Text = String.Empty;
-                    this.rtbDescription.Text = String.Empty;
-                    this.lblOldCoverUrl.Text = string.Empty;
-                    this.ptbCover.Image = null;
 
                     this.btnCover.Enabled = true;
                     this.btnUpdate.Enabled = false;
@@ -130,6 +136,12 @@ namespace BookStoreScreen
                     break;
 
                 default:
+                    this.txtID.Text = String.Empty;
+                    this.txtName.Text = String.Empty;
+                    this.rtbDescription.Text = String.Empty;
+                    this.lblOldCoverUrl.Text = string.Empty;
+                    this.ptbCover.Image = null;
+
                     this.txtID.ReadOnly = true;
                     this.txtName.ReadOnly = true;
                     this.rtbDescription.Enabled = true;
@@ -180,9 +192,9 @@ namespace BookStoreScreen
                 lvDisplay.Items.Clear();
 
                 int categoryId = Convert.ToInt32(this.cmbCategorySearch.SelectedValue);
-                int authorId =  Convert.ToInt32(this.cmbAuthorSearch.SelectedValue);
-                int year =  Convert.ToInt32(this.cmbYearSearch.SelectedItem);
-                string searchKey=this.txtSearchName.Text;
+                int authorId = Convert.ToInt32(this.cmbAuthorSearch.SelectedValue);
+                int year = Convert.ToInt32(this.cmbYearSearch.SelectedItem);
+                string searchKey = this.txtSearchName.Text;
                 if (!isSearch)
                 {
                     lstBookViewModel = mBookBusiness.GetAll();
@@ -245,11 +257,29 @@ namespace BookStoreScreen
                     this.cmbCategorySearch.ValueMember = "Id";
 
                     if (isSearch)
-                    {
-                        this.cmbCategorySearch.SelectedIndex = lstCategoryViewModel.FindIndex(x => x.Id == categoryId);
+                    {                        
+                        this.cmbCategorySearch.SelectedIndex = lstCategoryViewModel.FindIndex(x => x.Id == categoryId);                      
                     }
 
                     mListCategory = lstCategoryViewModel;
+                }
+
+
+                mListYear = new List<string>();
+                mListYear.Add(String.Empty);
+                cmbYear.Items.Add(String.Empty);
+                // Add data for year combobox
+                for (int i = 1960; i < DateTime.Now.Year+1; i++)
+                {
+
+                    cmbYearSearch.Items.Add(i.ToString());
+                    cmbYear.Items.Add(i.ToString());
+                    mListYear.Add(i.ToString());
+                }
+                if (isSearch)
+                {
+                    this.cmbYearSearch.SelectedIndex = mListYear.FindIndex(x => x.Equals(year.ToString()));
+                    this.txtSearchName.Text = searchKey;
                 }
 
                 //binding to grid
@@ -274,20 +304,7 @@ namespace BookStoreScreen
                     this.SetSelectedItem(0);
                 }
 
-                mListYear = new List<int>();
-                // Add data for year combobox
-                for (int i = 1920; i < DateTime.Now.Year; i++)
-                {
 
-                    cmbYearSearch.Items.Add(i.ToString());
-                    cmbYear.Items.Add(i.ToString());
-                    mListYear.Add(i);
-                }
-                if (isSearch)
-                {
-                    this.cmbYear.SelectedIndex = mListYear.FindIndex(x => x == year);
-                    this.txtSearchName.Text = searchKey;
-                }
 
                 result = true;
             }
@@ -316,7 +333,7 @@ namespace BookStoreScreen
         /// </summary>
         /// <param name="listViewItem">ListViewItem</param>
         /// <returns>BookViewModel object</returns>
-        private BookViewModel GetAuthorFromListView(ListViewItem listViewItem)
+        private BookViewModel GetBookFromListView(ListViewItem listViewItem)
         {
             BookViewModel book = new BookViewModel();
             book.Id = Convert.ToInt32(listViewItem.SubItems[1].Text);
@@ -389,14 +406,14 @@ namespace BookStoreScreen
         /// <param name="e"></param>
         private void lvDisplay_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            BookViewModel book = GetAuthorFromListView(e.Item);
+            BookViewModel book = GetBookFromListView(e.Item);
             InitControl(Constants.ACTION_VIEW);
 
             this.txtID.Text = book.Id.ToString();
             this.txtName.Text = book.Title;
             this.rtbDescription.Text = book.Description;
             this.lblCreateTime.Text = book.CreateTime.ToString();
-            this.lblPublisher.Text = book.Publisher;
+            this.txtPublisher.Text = book.Publisher;
             this.lblOldCoverUrl.Text = book.Cover;
 
             if (!string.IsNullOrEmpty(book.Cover))
@@ -408,18 +425,18 @@ namespace BookStoreScreen
 
             if (mListAuthor != null && mListAuthor.Count > 0)
             {
-                int index = mListAuthor.FindIndex(x => x.Id == book.Id);
+                int index = mListAuthor.FindIndex(x => x.Id == book.Author);
                 this.cmbAuthor.SelectedIndex = index;
             }
 
             if (mListCategory != null && mListCategory.Count > 0)
             {
-                int index = mListCategory.FindIndex(x => x.Id == book.Id);
+                int index = mListCategory.FindIndex(x => x.Id == book.Category);
                 this.cmbCategory.SelectedIndex = index;
             }
             if (mListYear != null && mListYear.Count > 0)
             {
-                int index = mListYear.FindIndex(x => x == book.Year);
+                int index = mListYear.FindIndex(x => x.Equals(book.Year.ToString()));
                 this.cmbYear.SelectedIndex = index;
             }
 
@@ -432,10 +449,8 @@ namespace BookStoreScreen
         /// <param name="e"></param>
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            InitControl("Create");
-            this.txtID.Text = (mAuthorBusiness.GetMaxId() + 1).ToString();
-
-
+            InitControl(Constants.ACTION_CREATE);
+            this.txtID.Text = (mBookBusiness.GetMaxId() + 1).ToString();
 
         }
 
@@ -446,7 +461,7 @@ namespace BookStoreScreen
         /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            this.InitControl("Update");
+            this.InitControl(Constants.ACTION_UPDATE);
 
         }
 
@@ -457,8 +472,14 @@ namespace BookStoreScreen
         /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            this.mAction = Constants.ACTION_DELETE;
-            btnSave.PerformClick();
+            if (DialogResult.Yes == MessageBox.Show("Do you want delete book?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+            {
+                this.mAction = Constants.ACTION_DELETE;
+                this.btnSave.Enabled = true;
+                this.btnSave.PerformClick();
+            }
+            
+            
         }
 
         /// <summary>
@@ -480,7 +501,7 @@ namespace BookStoreScreen
                 // Check book id
                 if (!mAction.Equals(Constants.ACTION_DELETE) && !mAction.Equals(Constants.ACTION_VIEW))
                 {
-                    if (String.IsNullOrEmpty(this.txtName.Text.Trim()))
+                    if (String.IsNullOrEmpty(this.txtID.Text.Trim()))
                     {
                         MessageBox.Show("Book ID cannot blank", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         this.txtID.Focus();
@@ -557,11 +578,30 @@ namespace BookStoreScreen
                 }
                 else
                 {
-                    bookViewModel.Cover = lblOldCoverUrl.Text;
+                    if (!mAction.Equals(Constants.ACTION_CREATE))
+                    {
+                        bookViewModel.Cover = lblOldCoverUrl.Text;
+                    }
+                    
                 }
 
                 switch (mAction)
                 {
+                    case Constants.ACTION_CREATE:
+                        bookViewModel.CreateTime = DateTime.Now;
+                        bookViewModel.LastUpdateTime = DateTime.Now;
+                        bookViewModel.DelFlag = false;
+
+                        result = mBookBusiness.Create(bookViewModel);
+                        if (result)
+                        {
+                            MessageBox.Show("Create book successfuly", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Create book error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        break;
                     case Constants.ACTION_UPDATE:
                         if (CheckIdExist(bookViewModel.Id))
                         {
@@ -580,21 +620,6 @@ namespace BookStoreScreen
                             }
                         }
                         break;
-                    case Constants.ACTION_CREATE:
-                        bookViewModel.CreateTime = DateTime.Now;
-                        bookViewModel.LastUpdateTime = DateTime.Now;
-                        bookViewModel.DelFlag = false;
-
-                        result = mBookBusiness.Create(bookViewModel);
-                        if (result)
-                        {
-                            MessageBox.Show("Create book successfuly", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Create book error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        break;
                     case Constants.ACTION_DELETE:
                         //Update book
                         bookViewModel.DelFlag = true;
@@ -604,12 +629,15 @@ namespace BookStoreScreen
                         if (result)
                         {
                             MessageBox.Show("Delete book successfuly", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            btnReload.PerformClick();
                         }
                         else
                         {
                             MessageBox.Show("Delete book error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
+                        this.btnSave.Enabled = false;
                         break;
+                       
                     default:
                         break;
                 }
@@ -632,6 +660,20 @@ namespace BookStoreScreen
         private void btnClear_Click(object sender, EventArgs e)
         {
 
+            ClearData();
+        }
+
+        private void ClearData()
+        {
+            this.txtID.Text = string.Empty;
+            this.txtName.Text = string.Empty;
+            this.txtPublisher.Text = string.Empty;
+            this.cmbAuthor.SelectedIndex = 0;
+            this.cmbCategory.SelectedIndex = 0;
+            this.cmbYear.SelectedIndex = 0;
+            this.cmbYear.SelectedItem = string.Empty;
+            this.rtbDescription.Text = string.Empty;
+            this.ptbCover.ImageLocation = string.Empty;
         }
 
         /// <summary>
@@ -699,6 +741,7 @@ namespace BookStoreScreen
 
             try
             {
+                ClearData();
                 //Load data
                 bool loadData = InitData(isSearch);
                 if (!loadData)

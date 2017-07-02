@@ -312,9 +312,9 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(387, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(210, 25);
+            this.label4.Size = new System.Drawing.Size(274, 25);
             this.label4.TabIndex = 35;
-            this.label4.Text = "MANAGE AUTHOR";
+            this.label4.Text = "AUTHOR MANAGEMENT";
             // 
             // Author
             // 

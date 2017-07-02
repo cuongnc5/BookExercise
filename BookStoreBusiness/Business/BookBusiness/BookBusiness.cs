@@ -32,7 +32,9 @@ namespace BookStoreBusiness
                 Publisher = book.Publisher,
                 Year = book.Year,
                 LastUpdateTime = book.LastUpdateTime ?? DateTime.MinValue,
-            }).ToList();
+                Category=book.Category,
+                DelFlag=book.DelFlag
+            }).Where(book=>book.DelFlag==false).ToList();
 
             return lstBookViewModel;
         }
@@ -123,11 +125,13 @@ namespace BookStoreBusiness
                 Description = book.Description,
                 CreateTime = book.CreateTime,
                 Author = book.Author,
+                Category=book.Category,
                 Cover = book.Cover,
                 Publisher = book.Publisher,
                 Year = book.Year,
                 LastUpdateTime = book.LastUpdateTime ?? DateTime.MinValue,
-            });
+                DelFlag=book.DelFlag
+            }).Where(book => book.DelFlag == false);
 
             //filter by key
             if (string.IsNullOrEmpty(searchKey.Trim()))
@@ -136,19 +140,19 @@ namespace BookStoreBusiness
             }
 
             //filter by category
-            if (categoryId != 0)
+            if (categoryId >0)
             {
                 lstBookViewModel = lstBookViewModel.Where(x => x.Category == categoryId);
             }
 
             //filter by author
-            if (categoryId != 0)
+            if (authorId > 0)
             {
-                lstBookViewModel = lstBookViewModel.Where(x => x.Category == categoryId);
+                lstBookViewModel = lstBookViewModel.Where(x => x.Author == authorId);
             }
 
             //filter by year
-            if (year != 0)
+            if (year > 0)
             {
                 lstBookViewModel = lstBookViewModel.Where(x => x.Year == year);
             }

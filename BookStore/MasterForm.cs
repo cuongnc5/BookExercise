@@ -62,21 +62,31 @@ namespace BookStoreScreen
         private void managerCategoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Category frmCategory = new Category(Books.ActiveForm);
-            this.Hide();
-            frmCategory.ShowDialog();
+            if (!this.Name.Equals(frmCategory.Name))
+            {
+                this.Hide();
+                frmCategory.ShowDialog();
+            }
         }
 
         private void managerBookToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Books frmBook = new Books();
-            frmBook.ShowDialog();
+            if (!this.Name.Equals(frmBook.Name))
+            {
+                this.Hide();
+                frmBook.ShowDialog();
+            }
         }
 
         private void managerAuthorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Author frmAuthor = new Author(Books.ActiveForm);
-            this.Hide();
-            frmAuthor.ShowDialog();
+            if (!this.Name.Equals(frmAuthor.Name)){
+                this.Hide();
+                frmAuthor.ShowDialog();
+            }
+            
         }
 
         private void MasterForm_FormClosed(object sender, FormClosedEventArgs e)

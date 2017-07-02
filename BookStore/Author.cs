@@ -44,19 +44,20 @@ namespace BookStoreScreen
                 case Constants.ACTION_CREATE:
                     this.txtAuthorID.ReadOnly = true;
                     this.txtAuthorName.ReadOnly = false;
-                    this.rtbDescription.Enabled = false;
+                    this.rtbDescription.ReadOnly = false;
 
                     this.txtAuthorID.Enabled = false;
                     this.txtAuthorName.Enabled = true;
                     this.rtbDescription.Enabled = true;
 
                     this.btnAuthoAvatar.Enabled = true;
-                    this.txtAuthorID.Text = String.Empty;
-                    this.txtAuthorName.Text = String.Empty;
-                    this.rtbDescription.Text = String.Empty;
+                    this.txtAuthorID.Text = string.Empty;
+                    this.txtAuthorName.Text = string.Empty;
+                    this.rtbDescription.Text = string.Empty;
                     this.lblOldAvatarUrl.Text = string.Empty;
                     this.ptbAvatar.Image = null;
                     this.btnUpdateAuthor.Enabled = false;
+                    this.btnDeleteAuthor.Enabled = false;
                     this.btnCreateAuthor.Enabled = false;
                     this.btnSave.Enabled = true;
                     this.btnClear.Enabled = true;
@@ -65,54 +66,76 @@ namespace BookStoreScreen
                 case Constants.ACTION_UPDATE:
                     this.txtAuthorID.ReadOnly = true;
                     this.txtAuthorName.ReadOnly = false;
-                    this.rtbDescription.Enabled = true;
+                    this.rtbDescription.ReadOnly = false;
 
                     this.txtAuthorID.Enabled = false;
-                    this.txtAuthorName.Enabled = false;
+                    this.txtAuthorName.Enabled = true;
                     this.rtbDescription.Enabled = true;
 
                     this.btnAuthoAvatar.Enabled = true;
                     this.btnUpdateAuthor.Enabled = false;
                     this.btnCreateAuthor.Enabled = false;
+                    this.btnDeleteAuthor.Enabled = false;
                     this.btnSave.Enabled = true;
                     this.btnClear.Enabled = true;
                     this.mAction = Constants.ACTION_UPDATE;
                     break;
                 case Constants.ACTION_DELETE:
-                    this.txtAuthorID.ReadOnly = this.txtAuthorName.ReadOnly = this.rtbDescription.ReadOnly = btnAuthoAvatar.Enabled = false;
-                    this.txtAuthorID.Enabled = this.txtAuthorName.Enabled = this.rtbDescription.Enabled = btnAuthoAvatar.Enabled = false;
-                    this.btnUpdateAuthor.Enabled = false;
-                    this.btnCreateAuthor.Enabled = false;
-                    this.btnSave.Enabled = false;
-                    this.btnClear.Enabled = false;
-                    break;
                 case Constants.ACTION_VIEW:
-                    this.txtAuthorID.ReadOnly = this.txtAuthorName.ReadOnly = this.rtbDescription.ReadOnly = true;
-                    this.txtAuthorID.Enabled = this.txtAuthorName.Enabled = this.rtbDescription.Enabled = false;
+                    this.txtAuthorID.ReadOnly = false;
+                    this.txtAuthorName.ReadOnly = false;
+                    this.rtbDescription.ReadOnly = false;
+
+                    this.txtAuthorID.Enabled = false;
+                    this.txtAuthorName.Enabled = false;
+                    this.rtbDescription.Enabled = false;
                     this.btnAuthoAvatar.Enabled = false;
+
                     this.btnUpdateAuthor.Enabled = true;
                     this.btnCreateAuthor.Enabled = true;
                     this.btnSave.Enabled = false;
                     this.btnClear.Enabled = false;
+
+                    if (Program.UserViewModel.Role.Equals(Constants.ROLE_ADMIN) && lvAuthor.Items.Count > 0)
+                    {
+                        this.btnDeleteAuthor.Enabled = true;
+                    }
+                    else
+                    {
+                        this.btnDeleteAuthor.Enabled = false;
+                    }
+
                     break;
+
                 default:
-                    this.txtAuthorID.ReadOnly = this.txtAuthorName.ReadOnly = true;
+                    this.txtAuthorID.Text = string.Empty;
+                    this.txtAuthorName.Text = string.Empty;
+                    this.rtbDescription.Text = string.Empty;
+                    this.lblOldAvatarUrl.Text = string.Empty;
+                    this.ptbAvatar.Image = null;
+
+                    this.txtAuthorID.ReadOnly = true;
+                    this.txtAuthorName.ReadOnly = true;
                     this.rtbDescription.Enabled = false;
                     this.btnAuthoAvatar.Enabled = false;
                     this.btnCreateAuthor.Enabled = true;
                     this.btnUpdateAuthor.Enabled = false;
-                    this.btnClear.Enabled = this.btnSave.Enabled = false;
+                    this.btnClear.Enabled = false;
+                    this.btnSave.Enabled = false;
+
+                    if (Program.UserViewModel.Role.Equals(Constants.ROLE_ADMIN) && lvAuthor.Items.Count > 0)
+                    {
+                        this.btnDeleteAuthor.Enabled = true;
+
+                    }
+                    else
+                    {
+                        this.btnDeleteAuthor.Enabled = false;
+                    }
                     break;
             }
 
-            if (Program.UserViewModel.Role.Equals(Constants.ROLE_ADMIN) && lvAuthor.Items.Count > 0)
-            {
-                this.btnDeleteAuthor.Enabled = true;
-            }
-            else
-            {
-                this.btnDeleteAuthor.Enabled = false;
-            }
+
         }
 
         /// <summary>
@@ -214,7 +237,7 @@ namespace BookStoreScreen
             {
                 MessageBox.Show("Load Data Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }   
+        }
 
         /// <summary>
         /// Handle process  Close_Form: Close this form and display parent form.
@@ -257,7 +280,7 @@ namespace BookStoreScreen
         /// <param name="e"></param>
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            InitControl("Create");
+            InitControl(Constants.ACTION_CREATE);
             this.txtAuthorID.Text = (mAuthorBusiness.GetMaxId() + 1).ToString();
 
 
@@ -271,7 +294,7 @@ namespace BookStoreScreen
         /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            this.InitControl("Update");
+            this.InitControl(Constants.ACTION_UPDATE);
 
         }
 
@@ -282,8 +305,12 @@ namespace BookStoreScreen
         /// <param name="e"></param>
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            this.mAction = Constants.ACTION_DELETE;
-            btnSave.PerformClick();
+            if (DialogResult.Yes == MessageBox.Show("Do you want delete the author", "Confrim", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+            {
+                this.mAction = Constants.ACTION_DELETE;
+                btnSave.PerformClick();
+            }
+
         }
 
         /// <summary>
@@ -432,7 +459,7 @@ namespace BookStoreScreen
                 MessageBox.Show("Load Data Error", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-               
+
         /// <summary>
         /// Get cover for author
         /// </summary>

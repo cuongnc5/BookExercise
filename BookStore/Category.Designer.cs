@@ -57,11 +57,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(370, -1);
+            this.label4.Location = new System.Drawing.Point(342, -2);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(242, 25);
+            this.label4.Size = new System.Drawing.Size(306, 25);
             this.label4.TabIndex = 36;
-            this.label4.Text = "MANAGE CATEGORY";
+            this.label4.Text = "CATEGORY MANAGEMENT";
             // 
             // lvDisplay
             // 
@@ -286,7 +286,6 @@
             this.Controls.Add(this.lvDisplay);
             this.Controls.Add(this.label4);
             this.Name = "Category";
-            this.Text = "Category";
             this.Load += new System.EventHandler(this.Category_Load);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.lvDisplay, 0);
