@@ -12,7 +12,7 @@ A small application to handle books in a library.
 # Implementation
   - Technologies used: .NET Framework 4.5.2, MSSQL Server 2014, Entity Framework 6.1.3 with Database code first, Repository generic pattern
   - MS SQLServer used for storing and managing data.
-# Struct of source code
+# Structure of source code
   The solution include 4 projects
   1. BookStoreScreen project include GUI of book store
   2. BookStoreBusiness project include business logic of create/update/view/delete book, author, category
@@ -22,10 +22,10 @@ A small application to handle books in a library.
   1. Use files in SQL.zip to create Database
   2. Username and password information
   <br/> 2.1. User role admin
-  - Username: Admin
-  - Password: 123
-  - Role: Admin
- <br/> 2.2. User role user
-  - Username: User
-  - Password: 321
-  - Role: User
+   <br/>Username: Admin
+   <br/>Password: 123
+   <br/>Role: Admin
+ <br/>2.2. User role user
+ <br/>Username: User
+ <br/>Password: 321
+ <br/>Role: User
