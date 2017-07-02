@@ -19,8 +19,8 @@ A small application to handle books in a library.
   3. BookStoreEntity project include Model, method connect Database
   4. Utilities project include comons logic of solution
 # User guide
-  - Use files in SQL.zip to create Database
-  #### Username and password information
+  ## Use files in SQL.zip to create Database
+  ## Username and password information
   ##### User role admin
   - Username: Admin
   - Password: 123
