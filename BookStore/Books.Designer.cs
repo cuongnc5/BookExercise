@@ -202,7 +202,7 @@
             // btnCover
             // 
             this.btnCover.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnCover.Location = new System.Drawing.Point(3, 153);
+            this.btnCover.Location = new System.Drawing.Point(3, 149);
             this.btnCover.Margin = new System.Windows.Forms.Padding(4);
             this.btnCover.Name = "btnCover";
             this.btnCover.Size = new System.Drawing.Size(126, 30);
@@ -223,7 +223,7 @@
             // btnReload
             // 
             this.btnReload.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnReload.Location = new System.Drawing.Point(804, 141);
+            this.btnReload.Location = new System.Drawing.Point(804, 145);
             this.btnReload.Margin = new System.Windows.Forms.Padding(4);
             this.btnReload.Name = "btnReload";
             this.btnReload.Size = new System.Drawing.Size(104, 36);
@@ -236,7 +236,7 @@
             // 
             this.btnClear.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnClear.BackColor = System.Drawing.Color.Linen;
-            this.btnClear.Location = new System.Drawing.Point(678, 141);
+            this.btnClear.Location = new System.Drawing.Point(678, 145);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(104, 36);
@@ -249,7 +249,7 @@
             // 
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnSave.BackColor = System.Drawing.Color.Coral;
-            this.btnSave.Location = new System.Drawing.Point(557, 141);
+            this.btnSave.Location = new System.Drawing.Point(557, 145);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(104, 36);
@@ -261,7 +261,7 @@
             // btnDelete
             // 
             this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnDelete.Location = new System.Drawing.Point(445, 141);
+            this.btnDelete.Location = new System.Drawing.Point(445, 145);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(104, 36);
@@ -273,7 +273,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnUpdate.Location = new System.Drawing.Point(321, 141);
+            this.btnUpdate.Location = new System.Drawing.Point(321, 145);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(104, 36);
@@ -285,7 +285,7 @@
             // btnCreate
             // 
             this.btnCreate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnCreate.Location = new System.Drawing.Point(197, 141);
+            this.btnCreate.Location = new System.Drawing.Point(197, 145);
             this.btnCreate.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(104, 36);
@@ -308,7 +308,7 @@
             this.rtbDescription.Location = new System.Drawing.Point(198, 74);
             this.rtbDescription.MaxLength = 500;
             this.rtbDescription.Name = "rtbDescription";
-            this.rtbDescription.Size = new System.Drawing.Size(745, 57);
+            this.rtbDescription.Size = new System.Drawing.Size(758, 57);
             this.rtbDescription.TabIndex = 7;
             this.rtbDescription.Text = "";
             // 
