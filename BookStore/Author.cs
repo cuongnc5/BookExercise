@@ -439,7 +439,11 @@ namespace BookStoreScreen
         /// <param name="e"></param>
         private void btnClear_Click(object sender, EventArgs e)
         {
-
+            this.txtAuthorID.Text = string.Empty;
+            this.txtAuthorName.Text = string.Empty;
+            this.rtbDescription.Text = string.Empty;
+            this.ptbAvatar.ImageLocation = string.Empty;
+            this.ptbAvatar.Image = null;
         }
 
         /// <summary>

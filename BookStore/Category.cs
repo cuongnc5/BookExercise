@@ -242,11 +242,9 @@ namespace BookStoreScreen
         /// <param name="e"></param>
         private void btnCreate_Click(object sender, EventArgs e)
         {
-            InitControl("Create");
+            InitControl(Constants.ACTION_CREATE);
             this.txtID.Text = (mCategoryBusiness.GetMaxId() + 1).ToString();
-
-
-
+            
         }
 
         /// <summary>
@@ -256,7 +254,7 @@ namespace BookStoreScreen
         /// <param name="e"></param>
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            this.InitControl("Update");
+            this.InitControl(Constants.ACTION_UPDATE);
 
         }
 
@@ -380,7 +378,10 @@ namespace BookStoreScreen
         /// <param name="e"></param>
         private void btnClear_Click(object sender, EventArgs e)
         {
-
+            this.txtID.Text = string.Empty;
+            this.txtName.Text = string.Empty;
+            this.rtbDescription.Text = string.Empty;
+         
         }
 
         /// <summary>

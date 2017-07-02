@@ -101,11 +101,13 @@
             // txtPassword
             // 
             this.txtPassword.Location = new System.Drawing.Point(272, 65);
+            this.txtPassword.MaxLength = 20;
             this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(193, 29);
             this.txtPassword.TabIndex = 2;
-            this.txtPassword.Text = "abcde12345--";
+            this.txtPassword.Text = "123";
             // 
             // txtUsername
             // 
@@ -114,7 +116,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(193, 30);
             this.txtUsername.TabIndex = 1;
-            this.txtUsername.Text = "CuongCN";
+            this.txtUsername.Text = "Admin";
             // 
             // label2
             // 
