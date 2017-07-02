@@ -21,11 +21,11 @@ A small application to handle books in a library.
 # User guide
   - Use files in SQL.zip to create Database
   #### Username and password information
-  </br>2.1. User role admin
-  <br/>   - Username: Admin
-  <br/>   - Password: 123
-  <br/>   - Role: Admin
-  <br/>2.2. User role user
-  <br/>   - Username: User
-  <br/>   - Password: 321
-  <br/>   - Role: User
+  ##### User role admin
+  - Username: Admin
+  - Password: 123
+  - Role: Admin
+  ##### User role user
+  - Username: User
+  - Password: 321
+  - Role: User
