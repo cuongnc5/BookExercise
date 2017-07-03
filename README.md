@@ -12,7 +12,6 @@ A small application to handle books in a library.
 # Implementation
   - Technologies used: .NET Framework 4.5.2, MSSQL Server 2014, Entity Framework 6.1.3 with Database first, Repository generic pattern
   - MS SQLServer used for storing and managing data.
-  - Use Catle Windsor
 # Structure of source code
   The solution include 4 projects
   1. BookStoreScreen project include GUI of book store
