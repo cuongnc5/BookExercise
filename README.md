@@ -10,8 +10,9 @@ A small application to handle books in a library.
       Manage authors (create/update/view/delete)
       Manage book(create/update/view/delete)
 # Implementation
-  - Technologies used: .NET Framework 4.5.2, MSSQL Server 2014, Entity Framework 6.1.3 with Database code first, Repository generic pattern
+  - Technologies used: .NET Framework 4.5.2, MSSQL Server 2014, Entity Framework 6.1.3 with Database first, Repository generic pattern
   - MS SQLServer used for storing and managing data.
+  -
 # Structure of source code
   The solution include 4 projects
   1. BookStoreScreen project include GUI of book store
