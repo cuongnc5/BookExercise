@@ -145,8 +145,6 @@ namespace BookStoreBusiness
         {
             var lstAuthor = mAuthorRepository.GetAll();
             return lstAuthor!=null&&lstAuthor.Count() == 0 ? 0 : lstAuthor.Max(m => m.Id);
-
-            
         }
     }
 }

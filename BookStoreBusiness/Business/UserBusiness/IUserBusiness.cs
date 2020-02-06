@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BookStoreBusiness
 {
-   public interface IUserBusiness
+    public interface IUserBusiness
     {
        /// <summary>
        /// Get all user
